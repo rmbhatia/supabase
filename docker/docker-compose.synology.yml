@@ -283,14 +283,14 @@ services:
     image: supabase/postgres:15.8.1.060
     restart: unless-stopped
     volumes:
-      - /volume1/docker/supabase/db/realtime.sql:/docker-entrypoint-initdb.d/migrations/99-realtime.sql:Z
-      - /volume1/docker/supabase/db/webhooks.sql:/docker-entrypoint-initdb.d/init-scripts/98-webhooks.sql:Z
-      - /volume1/docker/supabase/db/roles.sql:/docker-entrypoint-initdb.d/init-scripts/99-roles.sql:Z
-      - /volume1/docker/supabase/db/jwt.sql:/docker-entrypoint-initdb.d/init-scripts/99-jwt.sql:Z
-      - /volume1/docker/supabase/db/data:/var/lib/postgresql/data:Z
-      - /volume1/docker/supabase/db/_supabase.sql:/docker-entrypoint-initdb.d/migrations/97-_supabase.sql:Z
-      - /volume1/docker/supabase/db/logs.sql:/docker-entrypoint-initdb.d/migrations/99-logs.sql:Z
-      - /volume1/docker/supabase/db/pooler.sql:/docker-entrypoint-initdb.d/migrations/99-pooler.sql:Z
+      - /volume1/docker/supabase/db/realtime.sql:/docker-entrypoint-initdb.d/migrations/99-realtime.sql
+      - /volume1/docker/supabase/db/webhooks.sql:/docker-entrypoint-initdb.d/init-scripts/98-webhooks.sql
+      - /volume1/docker/supabase/db/roles.sql:/docker-entrypoint-initdb.d/init-scripts/99-roles.sql
+      - /volume1/docker/supabase/db/jwt.sql:/docker-entrypoint-initdb.d/init-scripts/99-jwt.sql
+      - /volume1/docker/supabase/db/data:/var/lib/postgresql/data
+      - /volume1/docker/supabase/db/_supabase.sql:/docker-entrypoint-initdb.d/migrations/97-_supabase.sql
+      - /volume1/docker/supabase/db/logs.sql:/docker-entrypoint-initdb.d/migrations/99-logs.sql
+      - /volume1/docker/supabase/db/pooler.sql:/docker-entrypoint-initdb.d/migrations/99-pooler.sql
       - db-config:/etc/postgresql-custom
     healthcheck:
       test: ["CMD","pg_isready","-U","postgres","-h","localhost"]
